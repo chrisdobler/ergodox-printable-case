@@ -26,6 +26,7 @@ module puzzlePiece()
 
 module keyboard()
 {
+
     $fn=500;
 
     hpos= [[31.365,65.345],[32.000,168.266],[94.103,113.809],[114.931,168.266],[165.731,168.266],[127.707,47.642],[179.244,39.564+.6],[173.478,83.735]];
@@ -81,15 +82,22 @@ module keyboard()
             cube([138,20,7.2]);
 
 
-        //cut off thumb section //////////////////
-        translate([125,0,-1]) {
-            cube([240,104,100],center=false);
-        }
-        translate([145,75,-1]) {
-            cube([240,104,100],center=false);
-        }
-        translate([119,53.5,-1]) {
-            rotate([0,0,270]) puzzlePiece();
+
+        //cut off everything except the thumb section //////////////////
+        translate([0,0,-1]) {
+
+            difference() {
+                cube([230,164,40],center=false);
+                translate([125,0,-1]) {
+                    cube([240,104,100],center=false);
+                }
+                translate([145,75,-1]) {
+                    cube([240,104,100],center=false);
+                }
+                translate([119,53.5,-1]) {
+                    rotate([0,0,270]) puzzlePiece();
+                }
+            }
         }
 
 
@@ -163,4 +171,3 @@ module keyboard()
 
 
 }
-
